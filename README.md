@@ -1,6 +1,6 @@
 ## Team Project : Walmart Trip Type Classification
 
-Use market basket analysis to classify shopping trips(Used data on Kaggle).
+(Used data on Kaggle).
 
 ### Team Name : 10to10
 - Danial Nam [Team Leader]
