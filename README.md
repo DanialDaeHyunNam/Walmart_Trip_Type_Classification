@@ -38,9 +38,9 @@ Scancount|Numerical|the number of the given item that was purchased|-
 
 Model|Accuracy|log loss
 -----|--------|--------
-logistic|0.723|0.964
-Random Forest|0.534|1.816
-**light GBM**|**0.888**|**0.716**
+logistic|0.749|0.865
+Random Forest|0.558|1.831
+**light GBM**|**0.90**|**0.670177**
 
 ## 5. Result
 <img src="kaggle_result.jpg">
