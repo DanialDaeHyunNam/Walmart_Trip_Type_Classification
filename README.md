@@ -43,7 +43,8 @@ Random Forest|0.534|1.816
 **light GBM**|**0.888**|**0.716**
 
 ## 5. Result
+<img src="kaggle_result.jpg">
 
 - Kaggle score
-  - 0.80596 [Public score 309/1047 (29.5%)]
-  - 0.79214 [Private score 294/1047 (28%)]
+  - Public 1047명 중 201위 19.2%
+  - Private 1047명 중 206위 19.67%

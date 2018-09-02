@@ -35,7 +35,7 @@ def get_df_to_fit(df, is_test_df = False):
     
     # test 모델은 TripType이 없으므로, X만 반환한다.
     if is_test_df:
-        return df.drop(["VisitNumber"], axis = 1).reset_index()
+        return df.drop(["VisitNumber"], axis = 1)
     
     # model에 fit할 때 사용할 X, y를 반환한다. (X, y로 받아줘야 한다.)
     return df.drop(["TripType", "VisitNumber"], axis = 1), df["TripType"]

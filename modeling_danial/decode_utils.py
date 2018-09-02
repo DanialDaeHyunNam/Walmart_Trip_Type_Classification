@@ -37,10 +37,23 @@ def company(x):
     except:
         return "-9999"
     
+def item(x):
+    try:
+        p = x[:6]
+        if p == '000000':
+            if x == "000000-99990":
+                return "000000"
+            return x[10:-1]
+        return x[7:-1]
+    except:
+        return "-9999"
+    
 def decodeStuffNeedsToBeDecoded(df_):
     df = df_.copy()
     col_list = ["FinelineNumber", "DepartmentDescription", "Upc"]
     replace_nan_list = ["1.1", "NULL", "-9999"]
+    tmp = df[df["Upc"].isnull()]
+    vn_li = tmp[~tmp["DepartmentDescription"].isnull()].VisitNumber.unique()
     
     for col in col_list:
         col_idx = col_list.index(col)
@@ -50,6 +63,16 @@ def decodeStuffNeedsToBeDecoded(df_):
         if col_idx == 2:
             df[col] = df[col].apply(full_upc)
             df["Company"] = df[col].apply(company)
+            df["Item_nbr"] = df[col].apply(item)
+    
+#     301691837020, 4822
+    df.set_index("VisitNumber", inplace=True)
+    df.at[vn_li, "Upc"] = "301691837020"
+    df.at[vn_li, "FinelineNumber"] = "4822"
+    df.at[vn_li, "Company"] = "301691"
+    df.at[vn_li, "Item_nbr"] = "3702"
+    df = df.reset_index()
+
     return df
 
 def getMostFrequentFeatureAsDf(df_, col):
